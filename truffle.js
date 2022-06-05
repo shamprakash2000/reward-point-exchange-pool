@@ -21,6 +21,7 @@ module.exports = {
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     },
   },
+  compilers:{
   solc: {
     // Turns on the Solidity optimizer. For development the optimizer's
     // quite helpful, just remember to be careful, and potentially turn it
@@ -28,9 +29,11 @@ module.exports = {
     // see the Truffle 4.0.0 release notes.
     //
     // https://github.com/trufflesuite/truffle/releases/tag/v4.0.0
+    version: "0.8.0", 
     optimizer: {
       enabled: true,
       runs: 200
     }
   }
+}
 }
