@@ -1,5 +1,5 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = "because harbor connect between before mutual ankle grunt spice hour blood approve"
+const mnemonic = "" //Add your paraphrase
 
 module.exports = {
   networks: {
@@ -13,7 +13,7 @@ module.exports = {
 
     //server test net bmlocn chain
       ropsten: {
-      provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/236c5349844d40e1a1e9ea20eb6d7186`),
+      provider: () => new HDWalletProvider(mnemonic, ``),//pass infura endpoint
       network_id: 3,       // Ropsten's id
       gas: 5500000,        // Ropsten has a lower block limit than mainnet
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)

@@ -7,4 +7,5 @@ export default () =>
     <p>Note that Web3 is not loaded for this page.</p>
     <div><Link href='/dapp'><a>My Dapp</a></Link></div>
     <div><Link href='/accounts'><a>My Accounts</a></Link></div>
+    <div><Link href='/transaction'><a>Transaction</a></Link></div>
   </div>
