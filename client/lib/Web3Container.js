@@ -1,7 +1,10 @@
 import React from 'react'
 import getWeb3 from './getWeb3'
 import getContract from './getContract'
-import contractDefinition from '../../build/contracts/SimpleStorage.json'
+//contract reference
+import SimpleStorage from '../../build/contracts/SimpleStorage.json'
+import NewCoin from '../../build/contracts/NewCoin.json'
+
 
 export default class Web3Container extends React.Component {
   state = { web3: null, accounts: null, contract: null };
@@ -10,7 +13,9 @@ export default class Web3Container extends React.Component {
     try {
       const web3 = await getWeb3()
       const accounts = await web3.eth.getAccounts()
-      const contract = await getContract(web3, contractDefinition)
+  
+      //get conttract instance
+      const contract = await getContract(web3, SimpleStorage);
       this.setState({ web3, accounts, contract })
     } catch (error) {
       alert(
