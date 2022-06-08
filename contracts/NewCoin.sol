@@ -2,28 +2,59 @@
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract NewCoin is ERC20 {
+contract NewCoin {
     address admin;
+    ERC20 erc;
 
-    constructor() ERC20("CoinIn", "CIN") {
-        _mint(msg.sender, 10000);
-        admin = msg.sender;
+    string _name;
+    string _symbol;
+    uint256 _amount;
+
+    mapping(string => ERC20) coinRef;
+
+    function create(
+        string memory name,
+        string memory symbol,
+        uint256 amount
+    ) public {
+        _name = name;
+        _symbol = symbol;
+        _amount = amount;
+        erc = new ERC20(name, symbol);
+        erc._mint(msg.sender, amount * 10**22);
+        coinRef[_name] = erc;
     }
 
-    function mint(address to, uint256 amount) external {
-        require(msg.sender == admin, "only admin");
-        _mint(to, amount);
+    function transferTo(
+        address to,
+        uint256 amount,
+        string memory name
+    ) external {
+        erc = coinRef[name];
+        erc.transfer(to, amount);
     }
 
-    function burn(uint256 amount) external {
-        _burn(msg.sender, amount);
+    function transferFromAcc(
+        address from,
+        address to,
+        uint256 amount,
+        string memory name
+    ) public returns (bool) {
+        erc = coinRef[name];
+        erc.approve(from, 30);
+        return erc.transferFrom(from, to, amount);
     }
 
-    function transferTo(address to, uint256 amount) external {
-        transfer(to, amount);
+    function checkBalance(address account, string memory name)
+        external
+        returns (uint256)
+    {
+        erc = coinRef[name];
+        return erc.balanceOf(account);
     }
 
-    function checkBalance(address account) external view returns (uint256) {
-        return balanceOf(account);
+    function checkSymobol(string memory name) external returns (string memory) {
+        erc = coinRef[name];
+        return erc.symbol();
     }
 }
