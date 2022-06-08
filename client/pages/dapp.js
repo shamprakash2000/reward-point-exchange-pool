@@ -9,7 +9,8 @@ class Dapp extends React.Component {
   };
 
   storeValue = async () => {
-    const { accounts, contract } = this.props
+    const { web3,accounts, contract } = this.props
+    getContract('SimpleStorage',web3)
     await contract.methods.set(5).send({ from: accounts[0] })
     alert('Stored 5 into account')
   };
