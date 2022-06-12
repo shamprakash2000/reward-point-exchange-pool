@@ -7,37 +7,34 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useRouter } from 'next/router';
 
 
-export default function MultiActionAreaCard({props}) {
-  let router = useRouter();
-  const shopfromSite=(link,name)=>{
-    router.push(`/shoping?name=${name}`);
+export default function RecipeReviewCard({props,shopingsitedata,isPaymentPage}) {
+    let router = useRouter();
+    function paymentPage(webdata,productId){
+        router.push(`/payment?siteid=${webdata.id}&productid=${productId}`)
   }
   return (
-      <>
-      {console.log(props)}
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
-          component="img" 
+          component="img"
           height="140"
-          image={props.logo}
+          image="/static/images/cards/contemplative-reptile.jpg"
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {props.companyName}
+            {props.productName}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-             {props.description}
+            {props.productdescription}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button onClick={()=>shopfromSite(props.link,props.companyName)} size="small" color="primary">
-          Shop Now
-        </Button>
+        {isPaymentPage?<Button>{props.costInRS} ₹</Button>:<Button onClick={()=>paymentPage(shopingsitedata,props.id)} size="small" color="primary">
+          Buy at ₹{props.costInRS}
+        </Button>}
       </CardActions>
     </Card>
-    </>
   );
 }

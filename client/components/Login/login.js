@@ -7,36 +7,52 @@ import {useNavigate} from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import { useState } from 'react';
 import {useRouter} from 'next/router'
-
-
+import axios from 'axios';
+import swal from 'sweetalert';
 
 
 
 export default function Login({loginType}) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [status,setStatus]=useState('');
+  let router=useRouter();
+
     const login = (username,password,loginType,router) =>{
     let sucess = false;
      
+
     if(username && password){
         console.log(username,password)
          if(loginType=="Admin"){
-             if(username=="Admin" && password == "blockchain"){
-                sucess=true;        
+             if(username=="Admin" && password == "blockchain"){       
                 router.push("./admindashboard");
+             }else{
+               alert('invalid username/password');
              }
          }
          else{
              //logic for organization verification
-             if(username && password){
-                 sucess=true;
-                 router.push("./orgdashboard");
+             if( username && password){
+                 axios.get('../../pages/api/getloginInfo').then((response)=>{
+                    if(response.status){
+                      if(response.username == username && response.password == password){
+                        alert('Login Sucessfull');
+                      }
+                    }
+                    else{
+                      swal('Waiting for Admin approval','','error');
+                    }
+
+                 }).catch(()=>{
+                   swal('Network Error','','error');
+                 })
+             }
+             else
+             {
+                 alert('invalid username / password')
              }
          }
-        if(sucess){
-            alert('login sucessfull');
-        }
-        else{
-            alert('invalid username / password')
-        }
 
     }
     else{
@@ -46,11 +62,10 @@ export default function Login({loginType}) {
 }
 
 const signup=(username,password)=>{
-      let sucess = false;
+    let sucess = false;
      
     if(username && password){
-        console.log(username,password)
-
+      router.push(`./registration?username=${username}&password=${password}`);
     }
     else{
         alert('enter all fiels')
@@ -58,9 +73,7 @@ const signup=(username,password)=>{
 }
 
 
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-let router=useRouter()
+
 const style={
         'margin-top':'100px',
 }
@@ -104,7 +117,7 @@ const style={
           Login
         </Button >
         <br/>
-        {loginType=="Admin"?<></>:  <Button onClick={()=>signup(username,password)} style={{'margin-top':'6px'}} variant="outlined" color="error">
+        {loginType=="Admin"?<></>: <Button onClick={()=>signup(username,password)} style={{'margin-top':'6px'}} variant="outlined" color="error">
           Signin
         </Button>}
 

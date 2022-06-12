@@ -8,7 +8,7 @@ import { Paper } from '@mui/material';
 import { Alert } from '@mui/material';
 import { Button } from '@mui/material';
 import MultiActionAreaCard from '../../components/Card';
-
+const axios = require('axios');
 
 
  function openmetamask(){
@@ -27,6 +27,14 @@ import MultiActionAreaCard from '../../components/Card';
     });
 }
 const UserDashBoard = ({accounts,web3})=>{
+   const [chainmatesdata,setchainmatesdata] = useState([]);
+   useEffect(()=>{
+     axios.get('../api/getChainmates').then((response)=>{
+       console.log(response.data);
+       //convert JSON to JS object
+       setchainmatesdata(response.data);
+     })
+   },[])
     return(
         <>
         <Grid container> 
@@ -39,8 +47,16 @@ const UserDashBoard = ({accounts,web3})=>{
           </Grid>
            <Grid  item xs={12}>
              <center><h1>Our ChainMates</h1></center>
-             <Grid container>
-               <MultiActionAreaCard/>
+             <Grid container spacing={2}>
+               {chainmatesdata.map((item)=>{
+                 return(
+                  <Grid xs={3}>
+                    <MultiActionAreaCard props={item}/>
+                 </Grid>
+                 )
+                 
+               })}
+               
             </Grid>
           </Grid>
         </Grid>

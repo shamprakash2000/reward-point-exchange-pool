@@ -1,0 +1,258 @@
+export const data =[
+{
+        id:"AMZ1",
+        sitename:"Amazon",
+        logo:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAgVBMVEX1ZgD////1YgD0WQD1YwD1XQD1XgD0VQD97Ob0VAD81cf4oX76vaf//fz+8Ov94tn4mHD6wq35qYr3kmf3h1X5sJT1bR7959/1axf3jmD3hE/+9fL3kWX83NH7zr72gUn6uaD2dTP7yLb82Mz5r5L5pob2civ7y7r2ez72fUH4l2/MLaGIAAAD0klEQVR4nO3ZWVviMBiG4TYrXdhBoQhUQEf9/z9wujHs6NhAx7me+8QLDpK8JE3zRc8DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvkAJo2VFa6OaHo9jRtvnXrqYt0phf7CU+v8JKaQarNv+kfbi1dRsWGntZIA1GTmcH6erjEStltVruPIaz6hsNLuQz/cX9Yan11kbqa27Euoxz48X8/l+S9ZrPC5We2TrLYVaRO9KvtoJPbkomukMm8soO9swndY8zHU7DhN6QVw29DhtKqOIuv1xNH1QtngJZrI/o3CbsFs3oWdf/G3GoJmMQmojxOGLTwRpNaxf9TdCPfqzIHoN7zl71Gs1qLGDIZmH3ZMw+GcyBtWQPlwsLCX/rHrfjyeyuY1VZc9g9RPrajwTNy0Hm73dKxw1NJHGvq1arah48NSyHMzMOmpcv++fKjpjc/eJzM6PUfnmn+Zdm6gcysrZiUvovZWaT+T0nud6ZWyy2nbdz1eQ7pcfhg5/aRsdRPTb/cTep0IzcpLuveSLOZSt8kPtt+FBR173MKPfSd/sjWdSGeltDvpNi1CiWkqOy4LgaBrzkP1E3uyZFMa+jg9/1vaoDNjbm0+XjLc+yZiVoZGSxnVXymg5ijtHfa1F2Y8uz8vOdtK9fu30bKn2GE+tu5Qqv7DYnP6Y7d42UfU23NzitSVsetJzqRs/KVv7ekgYad8Hi3O/40pvA4lh+c2NinPthWe6L3VWg3edn5S/kVOZbOomw/TCfcXjcrdvVovUxZn0PLk83lUPY4bjp4cgv+77WtDyjtAuo3h+8bYiW6B7bZniu1lwq4DF49i6ljGXX/c9PXu2uNk0WVi1N8Tsg8i+zGs9O3kbblaXsxU2BwfF6kDj8m1/StinTzNWSedhP36JPpJkJLbMe5IMo5e4H3a/0kpqDpejLJbQ2v1GepQxGF5dq660x+ZoQylrw/YdTsbCLi/vOY60XuTJdqKLm5XlXc7+Sk7ik4toh9ZnCzWZd9m71zVuVpN+3GixztLzxXZxYovueU8tsqP/9Z3wOxaj4MLhwQyybfTOF/FZ+bbsuwy5GEp9+TEzH14DlwxKB8nJOflbZqur8XJNXRRlMzkZnKk9/sZ8/Gw/idesvORJxvNvba/teTqS8if8X7cofaL+X22w3VX0HGjnNeYNKaGlfXgaf3bc9GfdX5vpxMqf+T/5omSw+iHJDqBxmJ1Ad8LsqDqIkonOs/2gmTtvV0Xs6Lzc+E4NCQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgJ/jN9maKoZbSZeQAAAAAElFTkSuQmCC",
+        coinName:'AMEZ',
+        coinSymbol:"AMZ",
+        oneAMEZinRS:1,
+        discountPerProduct:0.1,
+        siteWalltet:"0x829401A25dbe54744a3FCbF9e2E4F152239F856c",
+        contractAddress:"0x123455",
+        products:[
+            {
+                id:1,
+                productName:"Titan Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:300,
+            },
+              {
+                id:2,
+                productName:"Bag",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:200,
+            },
+              {
+                id:3,
+                productName:"Earphone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:150,
+            },
+              {
+                id:4,
+                productName:"Mobile Charger",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:469,
+            },
+              {
+                id:5,
+                productName:"Head Phone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:999,
+            },
+              {
+                id:6,
+                productName:"Earpods",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:2999,
+            },
+              {
+                id:7,
+                productName:"Digital Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:899,
+            },
+
+        ]
+
+    },
+    {
+        id:"MYNT2",
+        sitename:"Mynthra",
+        logo:"",
+        coinName:"MYNT",
+        coinSymbol:"MYN",
+        oneAMEZinRS:1,
+        discountPerProduct:0.25,
+        siteWalltet:"0x829401A25dbe54744a3FCbF9e2E4F152239F856c",
+        contractAddress:"",
+        products:[
+            {
+                id:1,
+                productName:"Titan Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:300,
+            },
+              {
+                id:2,
+                productName:"Bag",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:200,
+            },
+              {
+                id:3,
+                productName:"Earphone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:150,
+            },
+              {
+                id:4,
+                productName:"Mobile Charger",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:469,
+            },
+              {
+                id:5,
+                productName:"Head Phone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:999,
+            },
+              {
+                id:6,
+                productName:"Earpods",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:2999,
+            },
+              {
+                id:7,
+                productName:"Digital Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:899,
+            },
+
+        ]
+
+    },
+        {
+        id:"FLIP3",
+        sitename:"Flipcart",
+        logo:"",
+        coinName:"FLIP",
+        coinSymbol:"FLI",
+        oneAMEZinRS:1,
+        discountPerProduct:0.05,
+        siteWalltet:"0x1234569",
+        contractAddress:"",
+        products:[
+            {
+                id:1,
+                productName:"Titan Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:300,
+            },
+              {
+                id:2,
+                productName:"Bag",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:200,
+            },
+              {
+                id:3,
+                productName:"Earphone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:150,
+            },
+              {
+                id:4,
+                productName:"Mobile Charger",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:469,
+            },
+              {
+                id:5,
+                productName:"Head Phone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:999,
+            },
+              {
+                id:6,
+                productName:"Earpods",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:2999,
+            },
+              {
+                id:7,
+                productName:"Digital Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:899,
+            },
+
+        ]
+
+    },
+        {
+        id:"RELI4",
+        sitename:"Relaience",
+        logo:"",
+        coinName:"RELI",
+        coinSymbol:"REL", 
+        oneAMEZinRS:1,
+        discountPerProduct:0.1,
+        siteWalltet:"0x1234569",
+        contractAddress:"",
+        products:[
+            {
+                id:1,
+                productName:"Titan Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:300,
+            },
+              {
+                id:2,
+                productName:"Bag",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:200,
+            },
+              {
+                id:3,
+                productName:"Earphone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:150,
+            },
+              {
+                id:4,
+                productName:"Mobile Charger",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:469,
+            },
+              {
+                id:5,
+                productName:"Head Phone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:999,
+            },
+              {
+                id:6,
+                productName:"Earpods",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:2999,
+            },
+              {
+                id:7,
+                productName:"Digital Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:899,
+            },
+
+        ]
+
+    },
+]
