@@ -23,7 +23,7 @@ export const data =[
       {
         id:4,
         logo:'',
-        companyName:'Relaience',
+        companyName:'Relience',
         description:"hgusdguytd AXBASGXUYASH SGUHIUHDWBC  CJEBUCBIHCIWC UYBYCB CWCWCWM CWCBW M CHICW CDJCJ  JHBIDC CMD CJ",
         link:"relaience"
     }

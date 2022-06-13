@@ -9,16 +9,17 @@ import { useState } from 'react';
 import {useRouter} from 'next/router'
 import axios from 'axios';
 import swal from 'sweetalert';
+import { Authentication } from '../../pages/web3apis/Authentication';
+import { signupUser } from '../../pages/web3apis/signupUser';
 
 
-
-export default function Login({loginType}) {
+export default function Login({loginType,web3,accounts}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [status,setStatus]=useState('');
   let router=useRouter();
 
-    const login = (username,password,loginType,router) =>{
+    const login = async(username,password,loginType,router) =>{
     let sucess = false;
      
 
@@ -34,19 +35,25 @@ export default function Login({loginType}) {
          else{
              //logic for organization verification
              if( username && password){
-                 axios.get('../../pages/api/getloginInfo').then((response)=>{
-                    if(response.status){
-                      if(response.username == username && response.password == password){
-                        alert('Login Sucessfull');
-                      }
+                const response =  await axios.get('../api/getloginInfo');
+                const flag=true
+                  response.data.map(async(item)=>{
+                    if(item.username == username && item.status){
+                       let data = await Authentication(web3,accounts,username,password)
+                       if(data)
+                         router.push(`./orgdashboard?name=${username}`)
+                       else
+                          alert('Login Failed')
                     }
                     else{
-                      swal('Waiting for Admin approval','','error');
+                      if(flag){
+                           alert('Waiting for Admin conformation');
+                           flag=false
+                      }
+                           
                     }
-
-                 }).catch(()=>{
-                   swal('Network Error','','error');
-                 })
+                  })
+             
              }
              else
              {
@@ -61,10 +68,11 @@ export default function Login({loginType}) {
     
 }
 
-const signup=(username,password)=>{
+const signup=async(username,password)=>{
     let sucess = false;
      
     if(username && password){
+      await signupUser(web3,accounts,username,password)
       router.push(`./registration?username=${username}&password=${password}`);
     }
     else{
@@ -107,6 +115,7 @@ const style={
           sx={{width:350}}
           style={{'margin-top':'6px'}}
           required
+          type='password'
           id="outlined-required"
           label="Password"
           defaultValue=""
@@ -118,7 +127,7 @@ const style={
         </Button >
         <br/>
         {loginType=="Admin"?<></>: <Button onClick={()=>signup(username,password)} style={{'margin-top':'6px'}} variant="outlined" color="error">
-          Signin
+          Signup
         </Button>}
 
     </Box>

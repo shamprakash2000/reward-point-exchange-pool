@@ -21,8 +21,8 @@ export default () => {
     return(
       <>
       <center>
-      <h2>Points Exchange Pool Using Permissioned Block chain</h2>
-      <h4>How to You want to login?</h4>
+      <h2>Reward Points Exchange Pool Using Permissioned Block chain</h2>
+      <h4>How do You want to login?</h4>
       <Box component="span" sx={{ p: 2, border: '1px dashed grey' }}>
       <ButtonGroup variant="contained" aria-label="outlined primary button group">
       <Link href='./user/userdashboard'><Button>User</Button></Link>

@@ -12,7 +12,7 @@ export const data = [
     {        
         username:"Flipcart",
         password:"rajath",
-        status:false
+        status:false 
     },
     {        
         username:"Relaience",

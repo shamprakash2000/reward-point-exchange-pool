@@ -27,6 +27,57 @@ const Registration = ({accounts,web3})=>{
     const [discountPerProduct,setdiscountPerProduct]=useState(0);
     const [siteWalltet,setsiteWalltet]=useState('');
     const [status,setStatus]=useState(false);
+    const [products,setproducts]=useState([            
+        {
+                id:1,
+                productName:"Titan Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:300,
+            },
+              {
+                id:2,
+                productName:"Bag",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:200,
+            },
+              {
+                id:3,
+                productName:"Earphone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:150,
+            },
+              {
+                id:4,
+                productName:"Mobile Charger",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:469,
+            },
+              {
+                id:5,
+                productName:"Head Phone",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:999,
+            },
+              {
+                id:6,
+                productName:"Earpods",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:2999,
+            },
+              {
+                id:7,
+                productName:"Digital Watch",
+                productdescription:"lorem epsum bla bla bsy ydtuqw idjqw, duoelk",
+                image:'',
+                costInRS:899,
+            }
+]);
 
     const Register = ()=>{
         const loginInfo = {
@@ -38,30 +89,30 @@ const Registration = ({accounts,web3})=>{
                 id:id,
                 companyName:companyName,
                 description:description,
-                link:link
+                link:link,
+                status:false
         }
         const websiteData = {
         id:sid,
         sitename:sitename,
+        status:false,
         coinName:coinName,
         coinSymbol:coinSymbol,
         oneAMEZinRS:inRs,
         discountPerProduct:discountPerProduct,
         siteWalltet:siteWalltet,
         contractAddress:"",
-        products:[]
+        products:products
         }
-        
+         console.log(websiteData);
 
         axios.post("../api/postloginInfo",loginInfo).then((response)=>{
               axios.post("../api/postChainmates",chainmasterData).then((response)=>{
                     axios.post("../api/postwebsiteData",websiteData).then((response)=>{
                        swal("Registation SucessFull",'','success');
-                       router.push('./orglogin');
                     }).catch((err)=>{
                         swal("Registation Failed",``,'error').then(()=>{
-                        });
-                        
+                        });   
                     })
                 }).catch(()=>{
                     swal("Registation Failed",``,'error');

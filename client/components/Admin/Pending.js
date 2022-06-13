@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import axios from "axios";
 
+import { db } from "../../config/firebase";
+import { collection,getDocs,updateDoc,doc } from "firebase/firestore";
+
 export default function Pending({props}){
 const [loginInfo,setLoginInfo] = useState([]);
 const [chainMates,setchainMates] = useState([]);
@@ -11,20 +14,30 @@ const [cardData,setCardData]=useState([]);
 const [status,setStatus]=useState(false);
 const {contract,setcoinSymbol}=useState('');
 
-const approve = (contract,sitename)=>{
-    const data={
-        contractAddress:contract,
-        sitename:sitename
-
+const approve = async (contract,logid,webid,sitename)=>{
+  
+    console.log(logid,webid,status);
+    const login={
+        status:true
+    }
+    console.log(login)
+    chainMates.map(async(item)=>{
+    if(item.companyName == sitename){
+        await updateDoc(doc(db,"chainmaster",item.objid),login)
+    }
+   })
+    await updateDoc(doc(db,"loginInfo",logid),login)
+ 
+    
+     const website={
+        contractAddress:contract
     }
     //send to websitedata
-    data={
-        status:true,
-        sitename:sitename
-    }
+    await updateDoc(doc(db,"websiteData",webid),website)
     //Update to chainmates
     
     //reload the page
+     window.location.reload(true);
     
 
 }
@@ -55,13 +68,15 @@ const approve = (contract,sitename)=>{
       loginInfo.map((item,i)=>{
           if(!item.status){
               websiteData.map((data,i)=>{
-                  if(item.username == data.sitename){
+                  if(item.username == data.sitename ){
                       let temp = {
                           sitename:data.sitename,
                           coinName:data.coinName,
                           coinSymbol:data.coinSymbol,
                           siteWalltet:data.siteWalltet,
-                          status:item.status
+                          status:item.status,
+                          logid:item.objid,
+                          webid:data.objid
                       }
                       console.log(temp)
                       Data.push(temp);
@@ -85,9 +100,9 @@ const approve = (contract,sitename)=>{
                         </br>
                         <br></br>
                         <form>
-                        <input id={data.coinName} type='text' style={{'width':'400px'}} placeholder="Enter Contract Address" required/>
+                        <input id={data.webid} type='text' style={{'width':'400px'}} placeholder="Enter Contract Address" required/>
                         
-                        <input type="button" onClick={()=>approve( document.getElementById(data.coinName).value ,data.sitename)} value="Approve"/>
+                        <input type="button" onClick={()=>approve( document.getElementById(data.webid).value , data.logid, data.webid,data.sitename)} value="Approve"/>
                         </form>
                         </center>
                     </Card>

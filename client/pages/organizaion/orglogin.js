@@ -8,7 +8,7 @@ import Login from '../../components/login/login';
 const OrgLogin = ({accounts,web3})=>{
     return(
         <>
-        <Login loginType={'Organization'}></Login>
+        <Login loginType={'Organization'} accounts={accounts} web3={web3}></Login>
  
         </>
     )

@@ -105,7 +105,7 @@ function Payment({ accounts,web3 }) {
       <>
       {console.log(Tokens,siteWalltet,ProductData,coinName)}
       <Grid container spacing={2}>
-        <Grid item xs={2.5} >
+        <Grid item xs={3} >
           <>
           <RecipeReviewCard 
            props={ProductData} shopingsitedata={siteData} isPaymentPage={true} />
@@ -125,7 +125,7 @@ function Payment({ accounts,web3 }) {
            </Card>
            </>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={7}>
           <Card sx={{
             width:1200,
             height:650

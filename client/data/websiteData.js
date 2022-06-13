@@ -65,7 +65,7 @@ export const data =[
     },
     {
         id:"MYNT2",
-        sitename:"Mynthra",
+        sitename:"Myntra",
         logo:"",
         coinName:"MYNT",
         coinSymbol:"MYN",
@@ -193,7 +193,7 @@ export const data =[
     },
         {
         id:"RELI4",
-        sitename:"Relaience",
+        sitename:"Relience",
         logo:"",
         coinName:"RELI",
         coinSymbol:"REL", 

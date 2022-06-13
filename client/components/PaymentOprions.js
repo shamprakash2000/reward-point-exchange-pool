@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import { Button, Card } from '@mui/material';
 import Swap from './Swap';
 import { getBalance } from '../pages/web3apis/getBalence';
-import swal from 'sweetalert';
 import { setReward } from '../pages/web3apis/setReward';
 import { CircularProgress } from '@mui/material';
 

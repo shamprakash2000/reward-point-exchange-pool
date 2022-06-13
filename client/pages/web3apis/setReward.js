@@ -1,5 +1,6 @@
 // const LIQUIDITY_ADDRESS = '0x792Ae3E0aF515346f52Ca078322E809847b7de34';
 import { getContractbyName } from "../../lib/getContractbyName";
+import swal from "sweetalert";
 //this function transfers from wallet address- > to wallet address of reward(amount)
 export const  setReward = async(web3,name,to,from,reward,cost=0)=>{
         getContractbyName(name,web3).then((contractInstance)=>{

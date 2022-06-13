@@ -5,6 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useRouter } from 'next/router';
+import ig from "../asset/watch.jpg"
+import Image from 'next/image';
 
 
 export default function RecipeReviewCard({props,shopingsitedata,isPaymentPage}) {
@@ -13,14 +15,8 @@ export default function RecipeReviewCard({props,shopingsitedata,isPaymentPage}) 
         router.push(`/payment?siteid=${webdata.id}&productid=${productId}`)
   }
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 ,height:200}}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-          alt="green iguana"
-        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {props.productName}

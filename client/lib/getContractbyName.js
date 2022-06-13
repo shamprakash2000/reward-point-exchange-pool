@@ -2,11 +2,13 @@ import SimpleStorage from '../../build/contracts/SimpleStorage.json'
 import NewCoin from '../../build/contracts/NewCoin.json'
 // import CoinManager from '../../build/contracts/CoinManager.json'
 import Token from '../../build/contracts/Token.json'
+import OrganizationLogin from '../../build/contracts/OrganizationLogin.json'
 
 import AMEZ from '../../build/contracts/AMEZ.json'
 import MYNT from '../../build/contracts/MYNT.json'
 import FLIP from '../../build/contracts/FLIP.json'
 import RELI from '../../build/contracts/RELI.json'
+ 
 
 
 import getContract from './getContract'
@@ -22,6 +24,9 @@ export const  getContractbyName = async(name,web3) => {
             return response;
         });
         case "CoinManager": return await getContract(web3,CoinManager).then((response)=>{
+            return response;
+        });
+         case "OrganizationLogin": return await getContract(web3,OrganizationLogin).then((response)=>{
             return response;
         });
         case "Token": return await getContract(web3,Token).then((response)=>{
