@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "./ERC20Token.sol";
 import "./Owned.sol";
 
-contract Token is ERC20Token, Owned {
+contract AMEZ is ERC20Token, Owned {
     string public _symbol;
     string public _name;
     uint8 public _decimal;
@@ -22,7 +22,7 @@ contract Token is ERC20Token, Owned {
         _symbol = coinSymbol;
         _name = coinName;
         _decimal = decimal;
-        _totalSupply = supply * 10**18;
+        _totalSupply = supply;
         _minter = msg.sender;
         balances[_minter] = _totalSupply;
         emit Transfer(address(0), _minter, _totalSupply);

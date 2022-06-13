@@ -21,27 +21,25 @@ import {ConvertStringToHex} from '../lib/Helper';
    
 } 
 
-function getBalance(web3,accounts,name){
-     getContractbyName('NewCoin',web3).then((respone)=>{
-       console.log(accounts[0])
-       respone.methods.checkBalance(accounts[0],name).call({ from:accounts[0]}).then((respone)=>{
-              console.log(respone);
-
-          })
-    })
+export const  getBalance = async(web3,accounts,name)=>{
+       let response = await getContractbyName('Token',web3);
+       let balance =await response.methods.balanceOf(accounts[0]).call({ from:accounts[0]})
+       return balance;
 }
 
 function getSymobl(web3,accounts,name){
-   getContractbyName('NewCoin',web3).then((response)=>{
-     response.methods.checkSymobol(name).call({from:accounts[0]}).then((response)=>{
+   getContractbyName('Token',web3).then((response)=>{
+     response.methods.symbol().call({from:accounts[0]}).then((response)=>{
        console.log(response);
      })
    })
 }
 
 function transfer(web3,accounts,from,to,amount,name){
-   getContractbyName('NewCoin',web3).then((response)=>{;
-      response.methods.transferFromAcc(from,to,amount,name).send({from:accounts[0]}).then((response)=>{
+   getContractbyName('Token',web3).then((response)=>{;
+      response.methods.transferFrom(from,to,amount).send({from:accounts[0]}).then((response)=>{
+       console.log(response);
+     }).catch((err)=>{
        console.log(response);
      })
    })
@@ -54,7 +52,7 @@ const Createcoin = ({accounts,web3})=>{
        <Button onClick={()=>createCoin(web3,accounts,"Coin","CIN",100000)}>CreateCoin</Button>
        <Button onClick={()=>getBalance(web3,accounts,"Coin")}>getBalance</Button>
        <Button onClick={()=>getSymobl(web3,accounts,"Coin")}>getSymobol</Button>
-       <Button onClick={()=>transfer(web3,accounts,"0x232dD8763a68937dDFc42DA4D7C92826D29Fa449","0x792Ae3E0aF515346f52Ca078322E809847b7de34",1,"Coin")}>Transfer</Button>
+       <Button onClick={()=>transfer(web3,accounts,"0x792Ae3E0aF515346f52Ca078322E809847b7de34","0x829401A25dbe54744a3FCbF9e2E4F152239F856c",30,"Coin")}>Transfer</Button>
       </>
   )
 }

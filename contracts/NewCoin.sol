@@ -41,7 +41,7 @@ contract NewCoin {
         string memory name
     ) public returns (bool) {
         erc = coinRef[name];
-        erc.approve(from, 30);
+        erc.approve(to, 30);
         return erc.transferFrom(from, to, amount);
     }
 
